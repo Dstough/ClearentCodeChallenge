@@ -74,9 +74,9 @@ namespace InterestTest
             for (var walletCount = 0; walletCount < person.Wallets.Count; walletCount++)
             {
                 display += $"   Wallet {walletCount+1}: {person.Wallets[walletCount].GetInterestAmmount():C} \n";
-                for (var cardCount = 0; cardCount < person.Wallets[walletCount].Cards.Count; cardCount++)
+                foreach (var card in person.Wallets[walletCount].Cards)
                 {
-                    display += $"       Card {cardCount+1}: {person.Wallets[walletCount].Cards[cardCount].GetInterestAmmount():C} \n";
+                    display += $"       {card.CardName}: {card.GetInterestAmmount():C} \n";
                 }
             }
             return display + "\n";
